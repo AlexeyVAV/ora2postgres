@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="table-2">
+<table width="100%">
+<thead>
+<tr>
+<th align="left">Oracle Type</th>
+<th align="left">PostgreSQL Type</th>
+<th align="left">Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Char()</td>
+<td align="left">Char()</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Char(1)</td>
+<td align="left">Char(1)</td>
+<td align="left">If used as a boolean flag, use the boolean type instead</td>
+</tr>
+<tr>
+<td align="left">Varchar2()</td>
+<td align="left">Varchar()</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Timestamp</td>
+<td align="left">Timestamptz</td>
+<td align="left"><span data-sheets-value="{" data-sheets-userformat="{">In general, we recommend storing timestamps as time stamp with time zone (timestamptz), which is equivalent to Oracle&#8217;s timestamp with local time zone. This stores all values in UTC, even if the server or db client are in different timezones which avoids a lot of problems. But, some app code might have to be changed to timezone aware types &#8211; if significant, use the &#8220;timestamp&#8221; without timezone to minimize migration changes.</span></td>
+</tr>
+<tr>
+<td align="left">Date</td>
+<td align="left">Timestamptz</td>
+<td rowspan="2" align="left">PostgreSQL &#8220;Date&#8221; type stores the &#8220;date&#8221; only &#8211; no time portion</td>
+</tr>
+<tr>
+<td align="left">Date</td>
+<td align="left">Date</td>
+</tr>
+<tr>
+<td align="left">Number()</td>
+<td align="left">Numeric()</td>
+<td align="left">PostgreSQL Numeric is similar to Oracle Number with variable precision and scale so could be used for any numerical fields, but native integer and floating point fields are sometimes preferred.</td>
+</tr>
+<tr>
+<td align="left">Number(5,0)</td>
+<td align="left">Integer</td>
+<td rowspan="2" align="left">Integer and Bigint perform better than Number() when used for joins of large tables, so consider mapping to Int for primary and foreign key fields commonly used for joins.</td>
+</tr>
+<tr>
+<td align="left">Number(10,0)</td>
+<td align="left">Bigint</td>
+</tr>
+<tr>
+<td align="left">Number( ,2)</td>
+<td align="left">Numeric( ,2)</td>
+<td align="left"> PostgreSQL Numeric( ,2) is ideal for money types since it is exact precision (unless you&#8217;re dealing with Yen and need a ( ,0) type.  The &#8220;money&#8221; type is equivalent to numeric in precision but occasionally causes surprises for applications because of implicit assumptions about formatting. Never use a floating point representation (float/double) due to potential rounding during arithmetic.</td>
+</tr>
+<tr>
+<td align="left">CLOB</td>
+<td align="left">Text</td>
+<td rowspan="2" align="left">Text is much easier to use, no LOB functions, just treat it as a character field. Can store up to 1GB of text.</td>
+</tr>
+<tr>
+<td align="left">Long</td>
+<td align="left">Text</td>
+</tr>
+<tr>
+<td align="left">BLOB</td>
+<td rowspan="3" align="left">Bytea</td>
+<td rowspan="3" align="left"></td>
+</tr>
+<tr>
+<td align="left">Long raw</td>
+</tr>
+<tr>
+<td align="left">Raw</td>
+</tr>
+<tr>
+<td align="left">XMLTYPE</td>
+<td align="left">XML</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">UROWID</td>
+<td align="left">OID</td>
+<td align="left">Check the application usage for UROWID, usage of OID in Postgres is discouraged, and does not provide the same performance benefit as ROWID used to in Oracle.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>
