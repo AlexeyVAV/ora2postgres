@@ -1,7 +1,12 @@
 import re
 
-#with open('../inbound/ddl_script.sql') as f:
-#    print(strip(f.readlines()))
+with open('../inbound/2017-12-20_uscomdv1_marketplace_tables.sql') as f:
+    #print(f.readlines())
+    while f:
+        print(f.readline())
+    #resDDL = re.sub(r'VARCHAR2', 'VARCHAR', f.readlines(), flags=re.IGNORECASE)
+    #print resDDL
+
 
 ddlText = '''CREATE TABLE "MARKETPLACE"."AGGREGATE_FUNCTION_MATRIX"
 (    "TABLE_NAME" VARCHAR2(30) NOT NULL ENABLE,
@@ -11,11 +16,11 @@ ddlText = '''CREATE TABLE "MARKETPLACE"."AGGREGATE_FUNCTION_MATRIX"
 )
 '''
 
-print(ddlText)
+#print(ddlText)
 
-resDDL = re.sub(r'VARCHAR2', 'VARCHAR', ddlText, flags=re.IGNORECASE)
+#resDDL = re.sub(r'VARCHAR2', 'VARCHAR', ddlText, flags=re.IGNORECASE)
 
-print(resDDL)
+#print(resDDL)
 
 #######################################################
 # If you replace each word one at a time, you might replace words several times (and not get what you want). To avoid this, you can use a function or lambda:
