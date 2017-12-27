@@ -32,32 +32,46 @@ def mapping_load(mapping_file):
 def source_ddl_load(ddl_file):
     print("Load source DDL file:", ddl_file)
 
-def search_in_line(line_in):
+def search_in_line(line_in, mapping):
     print("Search in line")
-    #while not re.search("VARCHAR2", line_in):
+    for i in range(len(mapping)):
+        line = len([x for x in line_in.split() if x == mapping[i][0]])
+    ####
+    for i in range(len(mapping)):
+        #print(mapping[i][0])
+        #serch_line = re.compile("\b"+mapping[i][0]+"\b",re.I)
+        #if serch_line.serarch(line_in):
+        if re.findall(mapping[i][0], line_in):
+            print("Found",mapping[i][0],"in", line_in)
 
 def dt_replace(source_file, target_file):
     #with open("../inbound/2017-12-20_uscomdv1_marketplace_tables.sql") as f:
+    ora_dt_map = mapping_load("../etc/ora2psql_dt.map")
     with open(source_file) as f:
         for line in f:
-            # print(line)
+            #print(line)
             # outLine = pattern.sub(r"VARCHAR", line)
-            if re.search("VARCHAR2", line):
-                outLine = re.sub(r"VARCHAR2", "VARCHAR", line, flags=re.IGNORECASE)
-                print (outLine, re.findall("VARCHAR[(](\d+)", outLine))
+            search_in_line(line, ora_dt_map)
+            #if re.search("VARCHAR2", line):
+            #    outLine = re.sub(r"VARCHAR2", "VARCHAR", line, flags=re.IGNORECASE)
+            #    print (outLine, re.findall("VARCHAR[(](\d+)", outLine))
 
 
+############################################################################################
 def main(sys_params):
     print(sys_params)
 
     # mapping_load(param_load(sys.argv))
     ora_dt_map = mapping_load("../etc/ora2psql_dt.map")
     if ora_dt_map > 0:
-        print(ora_dt_map[2][0])
+        print("Length: ",len(ora_dt_map))
+        #for i in range(len(ora_dt_map)):
+        #    print(ora_dt_map[i][0])
+        #print(ora_dt_map[1][0])
         print(type(ora_dt_map))
 
-    source_ddl_load("../inbound/ddl_script.sql")
-
+    #source_ddl_load("../inbound/ddl_script.sql")
+    dt_replace("../inbound/2017-12-20_uscomdv1_marketplace_tables.sql", "target_file")
 
 # Main #
 if __name__ == "__main__":
