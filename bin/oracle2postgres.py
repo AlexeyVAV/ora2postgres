@@ -34,6 +34,7 @@ def source_ddl_load(ddl_file):
 
 def search_in_line(line_in):
     print("Search in line")
+    #while not re.search("VARCHAR2", line_in):
 
 def dt_replace(source_file, target_file):
     #with open("../inbound/2017-12-20_uscomdv1_marketplace_tables.sql") as f:
@@ -52,7 +53,8 @@ def main(sys_params):
     # mapping_load(param_load(sys.argv))
     ora_dt_map = mapping_load("../etc/ora2psql_dt.map")
     if ora_dt_map > 0:
-        print(ora_dt_map)
+        print(ora_dt_map[2][0])
+        print(type(ora_dt_map))
 
     source_ddl_load("../inbound/ddl_script.sql")
 
