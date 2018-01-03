@@ -1,7 +1,6 @@
-import fileinput
+import os
 import sys
-import re
-import pandas
+import pandas as pd
 
 def param_load(sys_argv):
     print("Load parameters",sys_argv)
@@ -29,35 +28,10 @@ def mapping_load(mapping_file):
         return 0
         raise
 
-
-def source_ddl_load(ddl_file):
-    print("Load source DDL file:", ddl_file)
-
-def search_in_line(line_in, mapping):
-    #print("Search in line")
-    line_s = re.split("\W+", line_in)
-    r1,r2 = 0,0
-    for i in range(len(mapping)):
-        if mapping[i][0] in line_s:
-            #print("Found",mapping[i][0],"in", line_s,"replace with",mapping[i][1])
-            r1,r2 = mapping[i][0],mapping[i][1]
-    return r1,r2
-
-def dt_replace(source_file, target_file, ora_dt_map):
-    #with open("../inbound/2017-12-20_uscomdv1_marketplace_tables.sql") as f:
-    #ora_dt_map = mapping_load("../etc/ora2psql_dt.map")
-    with open(source_file) as f:
-        for line in f:
-            str1, str2 = search_in_line(line, ora_dt_map)
-            if str1 != 0:
-                if re.search(str1, line):
-                    outLine = re.sub(str1, str2, line, flags=re.IGNORECASE)
-                    #print (line,"to",outLine)
-                    print(outLine)
-            else:
-                print(line)
-
-
+def source_load(source_file):
+    # example = pd.read_csv(myfile,sep='\t',skiprows=(0,1,2),header=(0))
+    df = pd.read_csv(source_file,sep='\t',skiprows=(0,1,2,3,4,5,6,7,9),header=(0))
+    print(df.columns.values)
 ############################################################################################
 def main(sys_params):
     #print(sys_params)
@@ -69,9 +43,9 @@ def main(sys_params):
         print("Length: ",len(ora_dt_map))
         print(type(ora_dt_map))
 
-    #source_ddl_load("../inbound/ddl_script.sql")
+        source_load('../inbound/2018-01-02_uscomdv1_tab_col.lst')
     #dt_replace("../inbound/2017-12-20_uscomdv1_marketplace_tables.sql", "target_file", ora_dt_map)
-    dt_replace("../inbound/2018-01-02_uscomdv1_marketplace_tables.sql", "target_file", ora_dt_map)
+    #dt_replace("../inbound/2018-01-02_uscomdv1_marketplace_tables.sql", "target_file", ora_dt_map)
 
    # print
 
