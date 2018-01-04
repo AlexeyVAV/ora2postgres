@@ -1,6 +1,7 @@
-import fileinput
+#import fileinput
 import sys
 import re
+import os
 
 def param_load(sys_argv):
     print("Load parameters",sys_argv)
@@ -59,6 +60,11 @@ def dt_replace(source_file, target_file, ora_dt_map):
                     #print (outLine, re.findall("VARCHAR[(](\d+)", outLine))
             else:
                 print(line)
+
+def output_file_write(output_file): # ../outbound/output_file_test.sql
+    if not os.path.exists(output_file):
+        with open(output_file,'wt') as _of:
+            _of.write('-- begin file --')
 
 
 ############################################################################################
