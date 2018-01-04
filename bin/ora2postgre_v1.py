@@ -31,8 +31,11 @@ def mapping_load(mapping_file):
 def source_load(source_file):
     # example = pd.read_csv(myfile,sep='\t',skiprows=(0,1,2),header=(0))
     # df = pd.read_csv(source_file,sep='\t',skiprows=(0,1,2,3,4,5,6,7,9),header=(0))
-    df = pd.read_csv(source_file, sep=',', skiprows=(0, 1, 2, 3, 4, 5, 6, 7,8,10), header=(0))
-    print(df.columns.values)
+    #df = pd.read_csv(source_file, sep=',', skiprows=(0, 1, 2, 3, 4, 5, 6, 7,8,10), header=(0),skipinitialspace=True)
+    df = pd.read_csv(source_file, sep=',', skiprows=(0, 1, 2, 3, 4, 5, 6), skipinitialspace=True, names=['OWNER','TABLE_NAME','COLUMN_NAME','DATA_TYPE','DATA_LENGTH','DEFAULT_LENGTH'])
+
+    print(df.head())
+    #print(df.columns.values)
 
 ############################################################################################
 def main(sys_params):
@@ -44,8 +47,8 @@ def main(sys_params):
     if ora_dt_map > 0:
         print("Length: ",len(ora_dt_map))
         print(type(ora_dt_map))
-
-        source_load('../inbound/2018-01-04_uscomdv1_tab_col.lst')
+        #source_load('../inbound/2018-01-04_uscomdv1_tab_col.lst')
+        source_load('../inbound/2018-01-04_uscomdv1_tab_col_1.lst')
     #dt_replace("../inbound/2017-12-20_uscomdv1_marketplace_tables.sql", "target_file", ora_dt_map)
     #dt_replace("../inbound/2018-01-02_uscomdv1_marketplace_tables.sql", "target_file", ora_dt_map)
 
