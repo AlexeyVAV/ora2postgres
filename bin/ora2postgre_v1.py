@@ -30,8 +30,10 @@ def mapping_load(mapping_file):
 
 def source_load(source_file):
     # example = pd.read_csv(myfile,sep='\t',skiprows=(0,1,2),header=(0))
-    df = pd.read_csv(source_file,sep='\t',skiprows=(0,1,2,3,4,5,6,7,9),header=(0))
+    # df = pd.read_csv(source_file,sep='\t',skiprows=(0,1,2,3,4,5,6,7,9),header=(0))
+    df = pd.read_csv(source_file, delimiter = r"\s+", skiprows=(0, 1, 2, 3, 4, 5, 6, 7, 9), header=(0))
     print(df.columns.values)
+
 ############################################################################################
 def main(sys_params):
     #print(sys_params)
