@@ -32,15 +32,22 @@ def source_load(source_file):
     # example = pd.read_csv(myfile,sep='\t',skiprows=(0,1,2),header=(0))
     # df = pd.read_csv(source_file,sep='\t',skiprows=(0,1,2,3,4,5,6,7,9),header=(0))
     #df = pd.read_csv(source_file, sep=',', skiprows=(0, 1, 2, 3, 4, 5, 6, 7,8,10), header=(0),skipinitialspace=True)
-    df = pd.read_csv(source_file, sep=',', skiprows=(0, 1, 2, 3, 4, 5, 6), skipinitialspace=True, names=['OWNER','TABLE_NAME','COLUMN_NAME','DATA_TYPE','DATA_LENGTH','DEFAULT_LENGTH'])
-
-    print(df.head())
     #print(df.columns.values)
+
+    # pandas approach
+    # the line below is working
+    #df = pd.read_csv(source_file, sep=',', skiprows=(0, 1, 2, 3, 4, 5, 6), skipinitialspace=True, names=['OWNER','TABLE_NAME','COLUMN_NAME','DATA_TYPE','DATA_LENGTH','DEFAULT_LENGTH'])
+    #print(df.head())
+
+    with open(source_file, 'r') as f:
+        for line in f:
+            #line = f.readline()
+            print(line.strip().split(','))
+
 
 ############################################################################################
 def main(sys_params):
     #print(sys_params)
-
     # mapping_load(param_load(sys.argv))
 
     ora_dt_map = mapping_load("../etc/ora2psql_dt.map")
@@ -48,7 +55,7 @@ def main(sys_params):
         print("Length: ",len(ora_dt_map))
         print(type(ora_dt_map))
         #source_load('../inbound/2018-01-04_uscomdv1_tab_col.lst')
-        source_load('../inbound/2018-01-04_uscomdv1_tab_col_1.lst')
+        source_load('../inbound/2018-01-04_uscomdv1_tab_col_2.lst')
     #dt_replace("../inbound/2017-12-20_uscomdv1_marketplace_tables.sql", "target_file", ora_dt_map)
     #dt_replace("../inbound/2018-01-02_uscomdv1_marketplace_tables.sql", "target_file", ora_dt_map)
 

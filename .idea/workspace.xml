@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0338c5f6-222a-4f56-8530-1c23a21593c0" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/inbound/2018-01-04_uscomdv1_tab_col_1.lst" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/misc/notepad.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/inbound/2018-01-04_uscomdv1_tab_col_2.lst" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/bin/ora2postgre_v1.py" afterPath="$PROJECT_DIR$/bin/ora2postgre_v1.py" />
     </list>
@@ -22,7 +21,7 @@
       <file leaf-file-name="oracle2postgres.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bin/oracle2postgres.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="731">
+            <state relative-caret-position="238">
               <caret line="43" column="14" lean-forward="false" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
@@ -34,8 +33,8 @@
       <file leaf-file-name="ora2postgre_v1.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bin/ora2postgre_v1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="46" column="22" lean-forward="true" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
+            <state relative-caret-position="239">
+              <caret line="36" column="21" lean-forward="false" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -501,7 +500,14 @@
       <option name="project" value="LOCAL" />
       <updated>1515082066691</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="2018-01-04 DH 2 commit with new file 3">
+      <created>1515084195441</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1515084195441</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -533,7 +539,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="2018-01-02 DH 2 commit with new file" />
     <MESSAGE value="2018-01-04 DH 2 commit with new file" />
-    <option name="LAST_COMMIT_MESSAGE" value="2018-01-04 DH 2 commit with new file" />
+    <MESSAGE value="2018-01-04 DH 2 commit with new file 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="2018-01-04 DH 2 commit with new file 3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -921,16 +928,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/oracle2postgres.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="43" column="14" lean-forward="false" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/misc/notepad.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -947,10 +944,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bin/oracle2postgres.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="43" column="14" lean-forward="false" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bin/ora2postgre_v1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="46" column="22" lean-forward="true" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
+        <state relative-caret-position="239">
+          <caret line="36" column="21" lean-forward="false" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
