@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0338c5f6-222a-4f56-8530-1c23a21593c0" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/inbound/2018-01-04_uscomdv1_tab_col.lst" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/oracle2postrges.iml" afterPath="$PROJECT_DIR$/.idea/oracle2postrges.iml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/bin/ora2postgre_v1.py" afterPath="$PROJECT_DIR$/bin/ora2postgre_v1.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -462,7 +458,14 @@
       <option name="project" value="LOCAL" />
       <updated>1515077223597</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="2018-01-04 DH 2 commit with new file">
+      <created>1515082042111</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1515082042111</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -493,7 +496,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="2018-01-02 DH 2 commit with new file" />
-    <option name="LAST_COMMIT_MESSAGE" value="2018-01-02 DH 2 commit with new file" />
+    <MESSAGE value="2018-01-04 DH 2 commit with new file" />
+    <option name="LAST_COMMIT_MESSAGE" value="2018-01-04 DH 2 commit with new file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
