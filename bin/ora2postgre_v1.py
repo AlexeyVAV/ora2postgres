@@ -40,9 +40,36 @@ def source_load(source_file):
     #print(df.head())
 
     with open(source_file, 'r') as f:
+        print_flag = 0
+        table_name = ''
         for line in f:
             #line = f.readline()
-            print(line.strip().split(','))
+
+            if line[0:10] == '----------':
+                print_flag = 1
+            elif len(line) == 1:
+                print_flag = 0
+
+            if print_flag == 1:
+                #print(table_name,line.strip().split(',')[1:2])
+                #print(table_name)
+
+                if table_name != line.strip().split(',')[1:2]:
+                    table_name = line.strip().split(',')[1:2]
+                    #print (table_name,line.strip().split(',')[:])
+                    print('CREATE TABLE {}.{} ( {}'.format(line.strip().split(',')[0:1],line.strip().split(',')[1:2],line.strip().split(',')[2:3]))
+                    #sys.stdout.write('CREATE TABLE {}.{} ( {}'.format(line.strip().split(',')[0:1],line.strip().split(',')[1:2],line.strip().split(',')[2:3]))
+                else:
+                    print(table_name,line.strip().split(',')[:])
+
+                #if table_name == line.strip().split(',')[1:2]:
+                #    #print (table_name)
+                #else:
+                #    table_name = line.strip().split(',')[1:2]
+                #    print (table_name)
+
+                #print('CREATE TABLE {}.{} (')
+
 
 
 ############################################################################################
