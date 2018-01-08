@@ -29,46 +29,43 @@ def mapping_load(mapping_file):
         raise
 
 def source_load(source_file):
-    # example = pd.read_csv(myfile,sep='\t',skiprows=(0,1,2),header=(0))
-    # df = pd.read_csv(source_file,sep='\t',skiprows=(0,1,2,3,4,5,6,7,9),header=(0))
-    #df = pd.read_csv(source_file, sep=',', skiprows=(0, 1, 2, 3, 4, 5, 6, 7,8,10), header=(0),skipinitialspace=True)
-    #print(df.columns.values)
-
-    # pandas approach
-    # the line below is working
-    #df = pd.read_csv(source_file, sep=',', skiprows=(0, 1, 2, 3, 4, 5, 6), skipinitialspace=True, names=['OWNER','TABLE_NAME','COLUMN_NAME','DATA_TYPE','DATA_LENGTH','DEFAULT_LENGTH'])
-    #print(df.head())
 
     with open(source_file, 'r') as f:
+
         print_flag = 0
         table_name = ''
-        for line in f:
-            #line = f.readline()
 
-            if line[0:10] == '----------':
+        for line in f:
+
+            _line = line.strip().split(',')
+
+            if _line[0][0:10] == '----------':
                 print_flag = 1
             elif len(line) == 1:
                 print_flag = 0
 
-            if print_flag == 1:
-                #print(table_name,line.strip().split(',')[1:2])
-                #print(table_name)
 
-                if table_name != line.strip().split(',')[1:2]:
-                    table_name = line.strip().split(',')[1:2]
-                    #print (table_name,line.strip().split(',')[:])
-                    print('CREATE TABLE {}.{} ( {}'.format(line.strip().split(',')[0:1],line.strip().split(',')[1:2],line.strip().split(',')[2:3]))
-                    #sys.stdout.write('CREATE TABLE {}.{} ( {}'.format(line.strip().split(',')[0:1],line.strip().split(',')[1:2],line.strip().split(',')[2:3]))
+            if print_flag == 1 and _line[0][0:10] != '----------':
+
+                if table_name != _line[1] and table_name != '':
+                    print(');')
+
+                if table_name != _line[1]:
+
+                    table_name = _line[1]
+
+                    print('CREATE TABLE {}.{} ( {} {}({})'.format(
+                        _line[0],
+                        _line[1],
+                        _line[2],
+                        _line[3],
+                        _line[4]
+                    )
+                    )
                 else:
-                    print(table_name,line.strip().split(',')[:])
+                    print(', {} {}({})'.format(_line[2], _line[3], _line[4]))
 
-                #if table_name == line.strip().split(',')[1:2]:
-                #    #print (table_name)
-                #else:
-                #    table_name = line.strip().split(',')[1:2]
-                #    print (table_name)
-
-                #print('CREATE TABLE {}.{} (')
+    print(');')
 
 
 
@@ -78,11 +75,12 @@ def main(sys_params):
     # mapping_load(param_load(sys.argv))
 
     ora_dt_map = mapping_load("../etc/ora2psql_dt.map")
+
     if ora_dt_map > 0:
+
         print("Length: ",len(ora_dt_map))
-        print(type(ora_dt_map))
-        #source_load('../inbound/2018-01-04_uscomdv1_tab_col.lst')
-        source_load('../inbound/2018-01-04_uscomdv1_tab_col_2.lst')
+        source_load('../inbound/2018-01-08_uscomdv1_tab_col_1.lst')
+
     #dt_replace("../inbound/2017-12-20_uscomdv1_marketplace_tables.sql", "target_file", ora_dt_map)
     #dt_replace("../inbound/2018-01-02_uscomdv1_marketplace_tables.sql", "target_file", ora_dt_map)
 

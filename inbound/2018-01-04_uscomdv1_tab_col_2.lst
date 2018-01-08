@@ -1,7 +1,8 @@
-SQL> set line 180 pages 2500
-SQL> col tab_col for a180
-SQL> select OWNER||','||TABLE_NAME||','||COLUMN_NAME||','||DATA_TYPE||','||DATA_LENGTH||','||nvl(DEFAULT_LENGTH, 0) tab_col from dba_tab_columns where owner='MARKETPLACE' and
-  2  table_name not like 'BIN%';
+spool /home/oracle/vav/2018-01-04_uscomdv1_tab_col_2.lst
+set line 180 pages 2500
+col tab_col for a180
+select OWNER||','||TABLE_NAME||','||COLUMN_NAME||','||DATA_TYPE||','||DATA_LENGTH||','||nvl(DEFAULT_LENGTH, 0) tab_col from dba_tab_columns where owner='MARKETPLACE' and
+table_name not like 'BIN%' order by OWNER,TABLE_NAME;
 
 TAB_COL                                                                                                                                                                             
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
