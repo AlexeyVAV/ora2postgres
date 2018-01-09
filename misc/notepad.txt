@@ -169,3 +169,30 @@ SQL> begin
 
 PL/SQL procedure successfully completed.
 --
+
+-- Possible values
+alexey@alexey-ubuntu:~/workspace/my_py/projects/ora2postgres/inbound$ cat ~/tmp/uscomdv1_cat.txt |awk '{print $4}'|sort -u
+BLOB
+CHAR
+CLOB
+DATE
+LONG
+NUMBER
+ROWID
+TIMESTAMP(6)
+VARCHAR2
+
+-- mapped
+CHAR	CHAR	0
+VARCHAR2	VARCHAR	0
+TIMESTAMP	TIMESTAMPTZ	0
+DATE	TIMESTAMPTZ	0
+DATE	DATE	0
+NUMBER	NUMERIC	0
+CLOB	TEXT	0
+LONG	TEXT	0
+BLOB	BYTEA	0
+RAW	BYTEA	0
+XMLTYPE	XML	0
+UROWID	OID	0
+

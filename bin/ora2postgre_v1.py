@@ -1,6 +1,6 @@
 import os
 import sys
-import pandas as pd
+import time
 
 
 def param_load(sys_argv):
@@ -40,7 +40,23 @@ def sub_dt(line_in, mapping):
     return res1
 
 
+def write_output(ofile, oline):
+
+    if not os.path.exists(ofile):
+
+        with open(ofile,'wt') as _of:
+            _of.write('-- begin file --\n')
+            _of.write(oline)
+
+    else:
+
+        with open(ofile,'a') as _of:
+            _of.write(oline)
+
+
 def source_load(source_file,ora_dt_map):
+
+    output_file = '../outbound/{}_{}.{}'.format(time.strftime("%Y-%m-%d_%H%M%S"), "uscomdv1", "out")
 
     with open(source_file, 'r') as f:
 
@@ -61,6 +77,8 @@ def source_load(source_file,ora_dt_map):
 
                 if table_name != _line[1] and table_name != '':
                     print(');')
+                    line_out = ');\n'
+                    write_output(output_file, line_out)
 
                 if table_name != _line[1]:
 
@@ -72,19 +90,23 @@ def source_load(source_file,ora_dt_map):
                         _line[2],
                         sub_dt(_line, ora_dt_map))
                     )
+                    line_out = 'CREATE TABLE {}.{} ({} {} \n'.format(
+                        _line[0],
+                        _line[1],
+                        _line[2],
+                        sub_dt(_line, ora_dt_map))
 
-#                    print('CREATE TABLE {}.{} ( {} {}({})'.format(
-#                        _line[0],
-#                        _line[1],
-#                        _line[2],
-#                        _line[3],
-#                        _line[4]
-#                    )
-#                    )
+                    write_output(output_file,line_out)
+
                 else:
                     print(', {} {}'.format(_line[2], sub_dt(_line, ora_dt_map)))
+                    line_out = ', {} {} \n'.format(_line[2], sub_dt(_line, ora_dt_map))
+                    write_output(output_file,line_out)
+
 
     print(');')
+    line_out = ');\n'
+    write_output(output_file,line_out)
 
 
 
@@ -100,9 +122,6 @@ def main(sys_params):
         print("Length: ",len(ora_dt_map))
         print(ora_dt_map)
         source_load('../inbound/2018-01-08_uscomdv1_tab_col_1.lst',ora_dt_map)
-
-        #l = ['MARKETPLACE', 'USER_QUERIES_TIMING_STATS_VW', 'NUMBER_OF_QUERIES', 'NUMBER', '22', '0']
-        #print(sub_dt(l,ora_dt_map))
 
 
 # Main #
