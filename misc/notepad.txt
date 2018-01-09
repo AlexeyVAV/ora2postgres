@@ -1,0 +1,171 @@
+['OWNER' 'TABLE_NAME'
+ 'COLUMN_NAME'
+ 'DATA_TYPE' 'DATA_LENGTH'
+ 'DEFAULT_LENGTH']
+
+names=['OWNER','TABLE_NAME','COLUMN_NAME','DATA_TYPE','DATA_LENGTH','DEFAULT_LENGTH']
+
+-- source_load function save 2018-01-08
+def source_load(source_file):
+    # example = pd.read_csv(myfile,sep='\t',skiprows=(0,1,2),header=(0))
+    # df = pd.read_csv(source_file,sep='\t',skiprows=(0,1,2,3,4,5,6,7,9),header=(0))
+    #df = pd.read_csv(source_file, sep=',', skiprows=(0, 1, 2, 3, 4, 5, 6, 7,8,10), header=(0),skipinitialspace=True)
+    #print(df.columns.values)
+
+    # pandas approach
+    # the line below is working
+    #df = pd.read_csv(source_file, sep=',', skiprows=(0, 1, 2, 3, 4, 5, 6), skipinitialspace=True, names=['OWNER','TABLE_NAME','COLUMN_NAME','DATA_TYPE','DATA_LENGTH','DEFAULT_LENGTH'])
+    #print(df.head())
+
+    with open(source_file, 'r') as f:
+        print_flag = 0
+        table_name = ''
+        for line in f:
+            #line = f.readline()
+
+            if line[0:10] == '----------':
+                print_flag = 1
+            elif len(line) == 1:
+                print_flag = 0
+
+            if print_flag == 1:
+                #print(table_name,line.strip().split(',')[1:2])
+                #print(table_name)
+
+                if table_name != line.strip().split(',')[1:2]:
+                    table_name = line.strip().split(',')[1:2]
+                    #print (table_name,line.strip().split(',')[:])
+                    print('CREATE TABLE {}.{} ( {}'.format(line.strip().split(',')[0:1],line.strip().split(',')[1:2],line.strip().split(',')[2:3]))
+                    #sys.stdout.write('CREATE TABLE {}.{} ( {}'.format(line.strip().split(',')[0:1],line.strip().split(',')[1:2],line.strip().split(',')[2:3]))
+                else:
+                    print(table_name,line.strip().split(',')[:])
+
+                #if table_name == line.strip().split(',')[1:2]:
+                #    #print (table_name)
+                #else:
+                #    table_name = line.strip().split(',')[1:2]
+                #    print (table_name)
+
+                #print('CREATE TABLE {}.{} (')
+--
+-- Working example
+def source_load(source_file):
+
+    with open(source_file, 'r') as f:
+
+        print_flag = 0
+        table_name = ''
+
+        for line in f:
+
+            if line[0:10] == '----------':
+                print_flag = 1
+            elif len(line) == 1:
+                print_flag = 0
+
+            _line = line.strip().split(',')
+            #print(_line[0][0:10])
+
+            if print_flag == 1 and _line[0][0:10] != '----------':
+                #print(table_name,line.strip().split(',')[1:2])
+                #print(table_name)
+
+                if table_name != _line[1]:
+                    table_name = _line[1]
+                    #print (table_name,line.strip().split(',')[:])
+                    #    #line.strip().split(',')[0:1],\
+                    print('CREATE TABLE {}.{} ( {} {}({})'.format( \
+                        _line[0], \
+                        _line[1],\
+                        _line[2],\
+                        _line[3],\
+                        _line[4]
+                        )
+                    )
+                else:
+                    print(_line)
+
+                #if table_name == line.strip().split(',')[1:2]:
+                #    #print (table_name)
+                #else:
+                #    table_name = line.strip().split(',')[1:2]
+                #    print (table_name)
+
+                #print('CREATE TABLE {}.{} (')
+--
+
+# -- line examples
+['MARKETPLACE', 'USER_QUERIES_TIMING_STATS_VW', 'PERCENT', 'NUMBER', '22', '0']
+
+['MARKETPLACE', 'USER_QUERIES_TIMING_STATS_VW', 'NUMBER_OF_QUERIES', 'NUMBER', '22', '0']
+);
+CREATE TABLE MARKETPLACE.USER_QUERIES_TIMING_STATS_VW (NUMBER_OF_QUERIES  NUMERIC(22)
+['MARKETPLACE', 'USER_QUERIES_TIMING_STATS_VW', 'PERCENT', 'NUMBER', '22', '0']
+, PERCENT  NUMERIC(22)
+['MARKETPLACE', 'USER_QUERIES_TIMING_STATS_VW', 'STATS', 'VARCHAR2', '59', '0']
+, STATS  VARCHAR(59)
+['MARKETPLACE', 'UTIL_QUERIES_TIMING_STATS_VW', 'NUMBER_OF_QUERIES', 'NUMBER', '22', '0']
+);
+CREATE TABLE MARKETPLACE.UTIL_QUERIES_TIMING_STATS_VW (NUMBER_OF_QUERIES  NUMERIC(22)
+['MARKETPLACE', 'UTIL_QUERIES_TIMING_STATS_VW', 'PERCENT', 'NUMBER', '22', '0']
+, PERCENT  NUMERIC(22)
+['MARKETPLACE', 'UTIL_QUERIES_TIMING_STATS_VW', 'STATS', 'VARCHAR2', '59', '0']
+, STATS  VARCHAR(59)
+['MARKETPLACE', 'test_ROLLUP', 'METCA_T_FLAG', 'VARCHAR2', '1', '0']
+);
+CREATE TABLE MARKETPLACE.test_ROLLUP (METCA_T_FLAG  VARCHAR(1)
+['MARKETPLACE', 'test_ROLLUP', 'TESKR_T_FLAG', 'VARCHAR2', '1', '0']
+
+
+PostgreSQL data types
+https://www.postgresql.org/docs/current/static/datatype.html
+
+Mapping file
+#VARCHAR2    VARCHAR	0
+#NUMBER      NUMBER	3
+CHAR	CHAR	0
+VARCHAR2	VARCHAR	0
+TIMESTAMP	TIMESTAMPTZ	0
+DATE	TIMESTAMPTZ	0
+DATE	DATE	0
+NUMBER	NUMERIC	0
+NUMBER	INTEGER	5
+NUMBER	BIGINT	10
+NUMBER	NUMERIC	0	1
+CLOB	TEXT	0
+LONG	TEXT	0
+BLOB	BYTEA	0
+#LONG RAW	BYTEA	0
+RAW	BYTEA	0
+XMLTYPE	XML	0
+UROWID	OID	0
+
+--
+EXEC  DBMS_METADATA.set_transform_param (DBMS_METADATA.session_transform, 'STORAGE', FALSE);
+EXEC  DBMS_METADATA.SET_TRANSFORM_PARAM(DBMS_METADATA.SESSION_TRANSFORM,'TABLESPACE',FALSE);
+EXEC  DBMS_METADATA.SET_TRANSFORM_PARAM(DBMS_METADATA.SESSION_TRANSFORM,'SEGMENT_ATTRIBUTES',FALSE);
+EXEC  DBMS_METADATA.SET_TRANSFORM_PARAM(DBMS_METADATA.SESSION_TRANSFORM,'CONSTRAINTS_AS_ALTER',true);
+EXEC DBMS_METADATA.GET_DDL('TABLE', 'CDM_REMOTE_TABLE_CONS_INFO_MV','MARKETPLACE');
+
+SQL> set serveroutput on
+SQL> begin
+  2  dbms_output.put_line(DBMS_METADATA.GET_DDL('TABLE', 'CDM_REMOTE_TABLE_CONS_INFO_MV','MARKETPLACE'));
+  3  end;
+  4  /
+
+  CREATE TABLE "MARKETPLACE"."CDM_REMOTE_TABLE_CONS_INFO_MV"
+   (    "CLIENT_NAME" VARCHAR2(50),
+        "CONSTRAINT_NAME" VARCHAR2(30),
+        "TABLE_NAME" VARCHAR2(30),
+        "COLUMN_NAME" VARCHAR2(4000),
+        "CONSTRAINT_TYPE" VARCHAR2(1),
+        "STATUS" VARCHAR2(8),
+        "DEFERRABLE" VARCHAR2(14),
+        "DEFERRED" VARCHAR2(9),
+        "VALIDATED" VARCHAR2(13),
+        "RELY" VARCHAR2(4),
+        "LAST_RUN" VARCHAR2(19)
+   )
+
+PL/SQL procedure successfully completed.
+--
