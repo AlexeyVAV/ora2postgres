@@ -1694,10 +1694,10 @@ MARKETPLACE,test_ROLLUP,TESPL_D_FLAG,VARCHAR2,1,0
 MARKETPLACE,test_ROLLUP,TESIE_T_FLAG,VARCHAR2,1,0                                                                                                                                   
 MARKETPLACE,test_ROLLUP,RAIA_DROGASIL_P_FLAG,VARCHAR2,1,0                                                                                                                           
 MARKETPLACE,test_ROLLUP,TESTR_P_FLAG,VARCHAR2,1,0                                                                                                                                   
-MARKETPLACE,test_ROLLUP,EXTCO_D_FLAG,VARCHAR2,1,0                                                                                                                                   
+MARKETPLACE,test_ROLLUP,EXTCO_D_FLAG,VARCHAR2,1,0
 MARKETPLACE,test_ROLLUP,TESMY_D_FLAG,VARCHAR2,1,0                                                                                                                                   
 MARKETPLACE,test_ROLLUP,TESTR_T_FLAG,VARCHAR2,1,0                                                                                                                                   
-MARKETPLACE,test_ROLLUP,TESCZ_D_FLAG,VARCHAR2,1,0                                                                                                                                   
+MARKETPLACE,test_ROLLUP,TESCZ_D_FLAG,VARCHAR2,1,0
 
 1694 rows selected.
 
