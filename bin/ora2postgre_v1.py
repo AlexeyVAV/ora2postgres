@@ -124,11 +124,11 @@ def main(sys_params):
 
         print("Length: ",len(ora_dt_map))
         print(ora_dt_map)
-        #source_load('../inbound/2018-01-08_uscomdv1_tab_col_1.lst',ora_dt_map) #<- working string
+        source_load('../inbound/2018-01-08_uscomdv1_tab_col_1.lst',ora_dt_map) #<- working string
 
         #l = ['MARKETPLACE', 'UTIL_QUERIES_TIMING_STATS_VW', 'NUMBER_OF_QUERIES', 'TIMESTAMP(6) WITH LOCAL TIME ZONE', '22', '0']
-        l = ['MARKETPLACE', 'UTIL_QUERIES_TIMING_STATS_VW', 'NUMBER_OF_QUERIES', 'NUMBER', '22', '0']
-        print(sub_dt(l, ora_dt_map))
+        #l = ['MARKETPLACE', 'UTIL_QUERIES_TIMING_STATS_VW', 'NUMBER_OF_QUERIES', 'NUMBER', '22', '0']
+        #print(sub_dt(l, ora_dt_map))
 
 # Main #
 if __name__ == "__main__":

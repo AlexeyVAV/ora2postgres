@@ -1,0 +1,423 @@
+uscomdv1=# \i 2018-01-10_154343_uscomdv1.out
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:119: ERROR:  syntax error at or near "DEFERRABLE"
+LINE 5: , DEFERRABLE  VARCHAR(14)
+          ^
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:239: ERROR:  type modifier is not allowed for type "text"
+LINE 1: CREATE TABLE MARKETPLACE.CLOBBER (A  TEXT(4000)
+                                             ^
+CREATE TABLE
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:261: ERROR:  length for type varchar must be at least 1
+LINE 2: , FIX  VARCHAR(0)
+               ^
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:324: ERROR:  syntax error at or near "DEFERRABLE"
+LINE 11: , DEFERRABLE  VARCHAR(14)
+           ^
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:383: ERROR:  type "rowid" does not exist
+LINE 3: , BAD_ROWID  ROWID (10)
+                     ^
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:404: ERROR:  type modifier is not allowed for type "date"
+LINE 2: , HIREDATE  DATE(7)
+                    ^
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:417: ERROR:  type modifier is not allowed for type "date"
+LINE 2: , HIREDATE  DATE(7)
+                    ^
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:430: ERROR:  type modifier is not allowed for type "date"
+LINE 1: CREATE TABLE MARKETPLACE.EBA_DEMO_TF_EMP (HIREDATE  DATE(7)
+                                                            ^
+CREATE TABLE
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:446: ERROR:  type modifier is not allowed for type "date"
+LINE 6: , HIREDATE  DATE(7)
+                    ^
+psql:2018-01-10_154343_uscomdv1.out:457: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 5: , UPDATED  TIMESTAMPTZ(11)
+                   ^
+psql:2018-01-10_154343_uscomdv1.out:457: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 7: , CREATED  TIMESTAMPTZ(11)
+                   ^
+psql:2018-01-10_154343_uscomdv1.out:457: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+psql:2018-01-10_154343_uscomdv1.out:457: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:470: ERROR:  type modifier is not allowed for type "date"
+LINE 3: , START_DATE  DATE(7)
+                      ^
+psql:2018-01-10_154343_uscomdv1.out:485: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 2: , CREATED  TIMESTAMPTZ(11)
+                   ^
+psql:2018-01-10_154343_uscomdv1.out:485: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 4: , UPDATED  TIMESTAMPTZ(11)
+                   ^
+psql:2018-01-10_154343_uscomdv1.out:485: ERROR:  type modifier is not allowed for type "date"
+LINE 12: , FILE_LASTUPD  DATE(7)
+                         ^
+psql:2018-01-10_154343_uscomdv1.out:499: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 1: ... TABLE MARKETPLACE.EBA_DEMO_TREE_STOCKS (UPDATED  TIMESTAMPT...
+                                                             ^
+psql:2018-01-10_154343_uscomdv1.out:499: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 3: , CREATED  TIMESTAMPTZ(11)
+                   ^
+psql:2018-01-10_154343_uscomdv1.out:499: ERROR:  type modifier is not allowed for type "date"
+LINE 8: , PRICING_DATE  DATE(7)
+                        ^
+psql:2018-01-10_154343_uscomdv1.out:516: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 1: ...TABLE MARKETPLACE.EBA_DEMO_TREE_SUBTASK (UPDATED  TIMESTAMPT...
+                                                             ^
+psql:2018-01-10_154343_uscomdv1.out:516: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 4: , CREATED  TIMESTAMPTZ(11)
+                   ^
+psql:2018-01-10_154343_uscomdv1.out:516: ERROR:  type modifier is not allowed for type "text"
+LINE 6: , SUB_DESC  TEXT(4000)
+                    ^
+psql:2018-01-10_154343_uscomdv1.out:532: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 1: ...TE TABLE MARKETPLACE.EBA_DEMO_TREE_TASK (CREATED  TIMESTAMPT...
+                                                             ^
+psql:2018-01-10_154343_uscomdv1.out:532: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 3: , UPDATED  TIMESTAMPTZ(11)
+                   ^
+psql:2018-01-10_154343_uscomdv1.out:532: ERROR:  type modifier is not allowed for type "date"
+LINE 8: , TASK_START  DATE(7)
+                      ^
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:553: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 5: , CHANGE_DATE  TIMESTAMPTZ(11)
+                       ^
+psql:2018-01-10_154343_uscomdv1.out:553: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 10: , NEW_DATE_COLUMN  TIMESTAMPTZ(11)
+                            ^
+psql:2018-01-10_154343_uscomdv1.out:553: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 11: , OLD_DATE_COLUMN  TIMESTAMPTZ(11)
+                            ^
+psql:2018-01-10_154343_uscomdv1.out:553: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+psql:2018-01-10_154343_uscomdv1.out:553: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+psql:2018-01-10_154343_uscomdv1.out:553: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:571: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 16: , ERR_TIME  TIMESTAMPTZ(11)
+                     ^
+psql:2018-01-10_154343_uscomdv1.out:571: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+CREATE TABLE
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:589: ERROR:  type modifier is not allowed for type "bytea"
+LINE 6: , FILE_BLOB  BYTEA(4000)
+                     ^
+psql:2018-01-10_154343_uscomdv1.out:634: ERROR:  type modifier is not allowed for type "text"
+LINE 35: , ABOUT_APP  TEXT(4000)
+                      ^
+psql:2018-01-10_154343_uscomdv1.out:656: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 1: ...TABLE MARKETPLACE.EBA_IT_ISSUES (IDENTIFIED_DATE  TIMESTAMPT...
+                                                             ^
+psql:2018-01-10_154343_uscomdv1.out:656: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 7: , TARGET_RESOLUTION_DATE  TIMESTAMPTZ(11)
+                                  ^
+psql:2018-01-10_154343_uscomdv1.out:656: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 9: , ACTUAL_RESOLUTION_DATE  TIMESTAMPTZ(11)
+                                  ^
+psql:2018-01-10_154343_uscomdv1.out:656: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 12: , CREATED_ON  TIMESTAMPTZ(11)
+                       ^
+psql:2018-01-10_154343_uscomdv1.out:656: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 14: , UPDATED_ON  TIMESTAMPTZ(11)
+                       ^
+psql:2018-01-10_154343_uscomdv1.out:656: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+psql:2018-01-10_154343_uscomdv1.out:656: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+psql:2018-01-10_154343_uscomdv1.out:656: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+psql:2018-01-10_154343_uscomdv1.out:656: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+psql:2018-01-10_154343_uscomdv1.out:656: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:668: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 4: , UPDATED  TIMESTAMPTZ(11)
+                   ^
+psql:2018-01-10_154343_uscomdv1.out:668: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 6: , CREATED  TIMESTAMPTZ(11)
+                   ^
+psql:2018-01-10_154343_uscomdv1.out:668: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+psql:2018-01-10_154343_uscomdv1.out:668: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:677: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 3: , LOG_DATE  TIMESTAMPTZ(11)
+                    ^
+psql:2018-01-10_154343_uscomdv1.out:677: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:686: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 1: ...REATE TABLE MARKETPLACE.EBA_IT_NOTES (UPDATED_ON  TIMESTAMPT...
+                                                             ^
+psql:2018-01-10_154343_uscomdv1.out:686: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 3: , CREATED_ON  TIMESTAMPTZ(11)
+                      ^
+psql:2018-01-10_154343_uscomdv1.out:686: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+psql:2018-01-10_154343_uscomdv1.out:686: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:699: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 1: ... TABLE MARKETPLACE.EBA_IT_NOTIFICATIONS (CREATED  TIMESTAMPT...
+                                                             ^
+psql:2018-01-10_154343_uscomdv1.out:699: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 3: , UPDATED  TIMESTAMPTZ(11)
+                   ^
+psql:2018-01-10_154343_uscomdv1.out:699: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 5: , DISPLAY_UNTIL  TIMESTAMPTZ(11)
+                         ^
+psql:2018-01-10_154343_uscomdv1.out:699: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 6: , DISPLAY_FROM  TIMESTAMPTZ(11)
+                        ^
+psql:2018-01-10_154343_uscomdv1.out:699: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+psql:2018-01-10_154343_uscomdv1.out:699: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+psql:2018-01-10_154343_uscomdv1.out:699: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+psql:2018-01-10_154343_uscomdv1.out:699: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:712: ERROR:  type modifier is not allowed for type "bytea"
+LINE 2: , CONTENT  BYTEA(4000)
+                   ^
+psql:2018-01-10_154343_uscomdv1.out:723: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 2: , CREATED_ON  TIMESTAMPTZ(11)
+                      ^
+psql:2018-01-10_154343_uscomdv1.out:723: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 9: , UPDATED_ON  TIMESTAMPTZ(11)
+                      ^
+psql:2018-01-10_154343_uscomdv1.out:723: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+psql:2018-01-10_154343_uscomdv1.out:723: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:731: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 2: , UPDATED_ON  TIMESTAMPTZ(11)
+                      ^
+psql:2018-01-10_154343_uscomdv1.out:731: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 4: , CREATED_ON  TIMESTAMPTZ(11)
+                      ^
+psql:2018-01-10_154343_uscomdv1.out:731: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+psql:2018-01-10_154343_uscomdv1.out:731: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:744: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 1: ...TE TABLE MARKETPLACE.EBA_IT_PROJECTS (CREATED_ON  TIMESTAMPT...
+                                                             ^
+psql:2018-01-10_154343_uscomdv1.out:744: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 3: , UPDATED_ON  TIMESTAMPTZ(11)
+                      ^
+psql:2018-01-10_154343_uscomdv1.out:744: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 4: , START_DATE  TIMESTAMPTZ(11)
+                      ^
+psql:2018-01-10_154343_uscomdv1.out:744: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 5: , TARGET_END_DATE  TIMESTAMPTZ(11)
+                           ^
+psql:2018-01-10_154343_uscomdv1.out:744: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 9: , ACTUAL_END_DATE  TIMESTAMPTZ(11)
+                           ^
+psql:2018-01-10_154343_uscomdv1.out:744: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+psql:2018-01-10_154343_uscomdv1.out:744: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+psql:2018-01-10_154343_uscomdv1.out:744: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+psql:2018-01-10_154343_uscomdv1.out:744: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+psql:2018-01-10_154343_uscomdv1.out:744: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:758: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 2: , UPDATED  TIMESTAMPTZ(11)
+                   ^
+psql:2018-01-10_154343_uscomdv1.out:758: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 4: , CREATED  TIMESTAMPTZ(11)
+                   ^
+psql:2018-01-10_154343_uscomdv1.out:758: ERROR:  type modifier is not allowed for type "bytea"
+LINE 7: , FILE_BLOB  BYTEA(4000)
+                     ^
+psql:2018-01-10_154343_uscomdv1.out:770: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 4: , UPDATED  TIMESTAMPTZ(11)
+                   ^
+psql:2018-01-10_154343_uscomdv1.out:770: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 6: , CREATED  TIMESTAMPTZ(11)
+                   ^
+psql:2018-01-10_154343_uscomdv1.out:770: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+psql:2018-01-10_154343_uscomdv1.out:770: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:779: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 1: ... TABLE MARKETPLACE.EBA_IT_PROJ_NOTES (CREATED_ON  TIMESTAMPT...
+                                                             ^
+psql:2018-01-10_154343_uscomdv1.out:779: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 6: , UPDATED_ON  TIMESTAMPTZ(11)
+                      ^
+psql:2018-01-10_154343_uscomdv1.out:779: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+psql:2018-01-10_154343_uscomdv1.out:779: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:788: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 5: , CREATED  TIMESTAMPTZ(11)
+                   ^
+psql:2018-01-10_154343_uscomdv1.out:788: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 7: , UPDATED  TIMESTAMPTZ(11)
+                   ^
+psql:2018-01-10_154343_uscomdv1.out:788: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+psql:2018-01-10_154343_uscomdv1.out:788: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:804: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 1: CREATE TABLE MARKETPLACE.EBA_IT_TZ_PREF (CREATED  TIMESTAMPT...
+                                                          ^
+psql:2018-01-10_154343_uscomdv1.out:804: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 8: , UPDATED  TIMESTAMPTZ(11)
+                   ^
+psql:2018-01-10_154343_uscomdv1.out:804: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+psql:2018-01-10_154343_uscomdv1.out:804: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:814: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 5: , UPDATED  TIMESTAMPTZ(11)
+                   ^
+psql:2018-01-10_154343_uscomdv1.out:814: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 8: , CREATED  TIMESTAMPTZ(11)
+                   ^
+psql:2018-01-10_154343_uscomdv1.out:814: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+psql:2018-01-10_154343_uscomdv1.out:814: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:850: ERROR:  type modifier is not allowed for type "text"
+LINE 2: , OTHER  TEXT(0)
+                 ^
+psql:2018-01-10_154343_uscomdv1.out:854: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 1: CREATE TABLE MARKETPLACE.JOB_LOG (TS  TIMESTAMPTZ(11)
+                                              ^
+psql:2018-01-10_154343_uscomdv1.out:854: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:950: ERROR:  type modifier is not allowed for type "date"
+LINE 25: , LAST_RUN  DATE(7)
+                     ^
+psql:2018-01-10_154343_uscomdv1.out:1028: ERROR:  type modifier is not allowed for type "date"
+LINE 10: , LAST_RUN  DATE(7)
+                     ^
+psql:2018-01-10_154343_uscomdv1.out:1106: ERROR:  type modifier is not allowed for type "date"
+LINE 40: , LAST_RUN  DATE(7)
+                     ^
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:1200: ERROR:  type modifier is not allowed for type "text"
+LINE 8: , CHANGE_SCRIPT  TEXT(4000)
+                         ^
+psql:2018-01-10_154343_uscomdv1.out:1214: ERROR:  type modifier is not allowed for type "date"
+LINE 4: , DEPRECATE_FINAL_DATE  DATE(7)
+                                ^
+psql:2018-01-10_154343_uscomdv1.out:1228: ERROR:  type modifier is not allowed for type "date"
+LINE 1: ...E.META_DEPRECATE_COLUMN_TEMP (DEPRECATE_FINAL_DATE  DATE(7)
+                                                               ^
+psql:2018-01-10_154343_uscomdv1.out:1234: ERROR:  type modifier is not allowed for type "date"
+LINE 1: ...ETPLACE.META_DEPRECATE_TABLE (DEPRECATE_FINAL_DATE  DATE(7)
+                                                               ^
+psql:2018-01-10_154343_uscomdv1.out:1256: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 12: , LAST_UPDATE  TIMESTAMPTZ(11)
+                        ^
+psql:2018-01-10_154343_uscomdv1.out:1256: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:1278: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 14: , LAST_UPDATE  TIMESTAMPTZ(11)
+                        ^
+psql:2018-01-10_154343_uscomdv1.out:1278: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+CREATE TABLE
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:1293: ERROR:  type modifier is not allowed for type "date"
+LINE 7: , LAST_UPDATE  DATE(7)
+                       ^
+psql:2018-01-10_154343_uscomdv1.out:1304: ERROR:  type modifier is not allowed for type "date"
+LINE 10: , LAST_UPDATE  DATE(7)
+                        ^
+psql:2018-01-10_154343_uscomdv1.out:1404: ERROR:  type modifier is not allowed for type "date"
+LINE 32: , CREATED_DTTM  DATE(7)
+                         ^
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:1421: ERROR:  type modifier is not allowed for type "date"
+LINE 8: , CREATED_DTTM  DATE(7)
+                        ^
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:1438: ERROR:  type modifier is not allowed for type "date"
+LINE 2: , MODIFIED_DTTM  DATE(7)
+                         ^
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:1450: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 5: , DEP_DATE  TIMESTAMPTZ(11)
+                    ^
+psql:2018-01-10_154343_uscomdv1.out:1450: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+CREATE TABLE
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:1464: ERROR:  type modifier is not allowed for type "date"
+LINE 4: , CREATED_DTTM  DATE(7)
+                        ^
+psql:2018-01-10_154343_uscomdv1.out:1473: ERROR:  type modifier is not allowed for type "text"
+LINE 3: , VIEW_SQL  TEXT(4000)
+                    ^
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:1492: ERROR:  type modifier is not allowed for type "date"
+LINE 1: ...E TABLE MARKETPLACE.MPG_ENVIRONMENT (MODIFIED_DTTM  DATE(7)
+                                                               ^
+CREATE TABLE
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:1512: ERROR:  type modifier is not allowed for type "bytea"
+LINE 4: , BLOB_CONTENT  BYTEA(4000)
+                        ^
+CREATE TABLE
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:1528: ERROR:  type modifier is not allowed for type "date"
+LINE 1: ...ATE TABLE MARKETPLACE.RM_CPU_TIME_CAPTURE (DATE_ID  DATE(7)
+                                                               ^
+CREATE TABLE
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:1544: ERROR:  type modifier is not allowed for type "date"
+LINE 6: , DATE_ID  DATE(7)
+                   ^
+psql:2018-01-10_154343_uscomdv1.out:1626: ERROR:  type modifier is not allowed for type "date"
+LINE 57: , LAST_RUN  DATE(7)
+                     ^
+psql:2018-01-10_154343_uscomdv1.out:1704: ERROR:  type modifier is not allowed for type "date"
+LINE 55: , LAST_RUN  DATE(7)
+                     ^
+psql:2018-01-10_154343_uscomdv1.out:1709: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+LINE 3: , DATE_ADDED_TO_RECALL  TIMESTAMPTZ(11)
+                                ^
+psql:2018-01-10_154343_uscomdv1.out:1709: WARNING:  TIMESTAMP(11) WITH TIME ZONE precision reduced to maximum allowed, 6
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:1717: ERROR:  type modifier is not allowed for type "date"
+LINE 1: ...ACE.TRANSACTION_CONTROL_TABLE (FIS_WEEK_START_DATE  DATE(7)
+                                                               ^
+CREATE TABLE
+CREATE TABLE
+psql:2018-01-10_154343_uscomdv1.out:1733: ERROR:  type modifier is not allowed for type "date"
+LINE 4: , SQL_EXEC_START  DATE(7)
+                          ^
+psql:2018-01-10_154343_uscomdv1.out:1742: ERROR:  type modifier is not allowed for type "date"
+LINE 1: ... MARKETPLACE.USER_PERF_TRACKER_ADD (SQL_EXEC_START  DATE(7)
+                                                               ^
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
