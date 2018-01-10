@@ -196,3 +196,8 @@ RAW	BYTEA	0
 XMLTYPE	XML	0
 UROWID	OID	0
 
+-- timezone examples
+MARKETPLACE  EBA_DEMO_TREE_PROJ_FILES            UPDATED                                  TIMESTAMP(6) WITH LOCAL TIME ZONE            11
+MARKETPLACE  TOTAL_RECALL_MATRIX                 DATE_ADDED_TO_RECALL                     TIMESTAMP(6)
+
+

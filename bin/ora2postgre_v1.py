@@ -1,6 +1,7 @@
 import os
 import sys
 import time
+import re
 
 
 def param_load(sys_argv):
@@ -32,10 +33,12 @@ def mapping_load(mapping_file):
 def sub_dt(line_in, mapping):
     #print("Search in line")
 
-    res1 = " {} ({})".format(line_in[3],line_in[4])
+    #res1 = " {} ({})".format(line_in[3],line_in[4])
+    res1 = " {} ({})".format(re.match('^\w+',line_in[3]).group(0),line_in[4])
 
     for _i in range(len(mapping)):
-        if mapping[_i][0] == line_in[3]:
+        #if mapping[_i][0] == line_in[3]:
+        if mapping[_i][0] == re.match('^\w+',line_in[3]).group(0):
             res1 = " {}({})".format(mapping[_i][1],line_in[4])
     return res1
 
@@ -121,8 +124,11 @@ def main(sys_params):
 
         print("Length: ",len(ora_dt_map))
         print(ora_dt_map)
-        source_load('../inbound/2018-01-08_uscomdv1_tab_col_1.lst',ora_dt_map)
+        #source_load('../inbound/2018-01-08_uscomdv1_tab_col_1.lst',ora_dt_map) #<- working string
 
+        #l = ['MARKETPLACE', 'UTIL_QUERIES_TIMING_STATS_VW', 'NUMBER_OF_QUERIES', 'TIMESTAMP(6) WITH LOCAL TIME ZONE', '22', '0']
+        l = ['MARKETPLACE', 'UTIL_QUERIES_TIMING_STATS_VW', 'NUMBER_OF_QUERIES', 'NUMBER', '22', '0']
+        print(sub_dt(l, ora_dt_map))
 
 # Main #
 if __name__ == "__main__":
