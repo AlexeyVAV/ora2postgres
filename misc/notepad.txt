@@ -266,6 +266,9 @@ MARKETPLACE,DEVTM_CONS_DIFF_PART,SUPERSET_DEFERRABLE,VARCHAR2,14,0
 MARKETPLACE,DEVTM_CONS_DIFF_PART,DEFERRABLE,VARCHAR2,14,0
 
 
-
+------------------------------------------------------------------------
+-- Oracle connection docs
+http://www.oracle.com/technetwork/database/database-technologies/scripting-languages/python/index.html#close
+http://www.oracle.com/technetwork/articles/dsl/python-091105.html
 
 
