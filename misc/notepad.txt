@@ -280,3 +280,5 @@ https://www.a2hosting.co.uk/kb/developer-corner/postgresql/connecting-to-postgre
 >>> data = ("O'Reilly", )
 >>> cur.execute(SQL, data) # Note: no % operator
 
+
+Hello Alex
