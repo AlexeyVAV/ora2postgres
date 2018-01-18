@@ -225,7 +225,7 @@ MARKETPLACE,DEVTM_CDM_COL_COMMENT_SYNC,TABLE_NAME,VARCHAR2,30,0
 MARKETPLACE,DEVTM_CDM_COL_COMMENT_SYNC,ALTER_STATEMENT,VARCHAR2,4000,0                                                                                                              
 MARKETPLACE,DEVTM_CDM_COL_COMMENT_SYNC,ENVIRONMENT_NAME,VARCHAR2,100,0                                                                                                              
 MARKETPLACE,DEVTM_CDM_COL_DOMAINS,DATA_PRECISION,NUMBER,22,0                                                                                                                        
-MARKETPLACE,DEVTM_CDM_COL_DOMAINS,FIX,VARCHAR2,0,0                                                                                                                                  
+MARKETPLACE,DEVTM_CDM_COL_DOMAINS,FIX,VARCHAR2,1,0                                                                                                                                  
 MARKETPLACE,DEVTM_CDM_COL_DOMAINS,CLIENT_NAME,VARCHAR2,100,0                                                                                                                        
 MARKETPLACE,DEVTM_CDM_COL_DOMAINS,FIX_ID,NUMBER,22,0                                                                                                                                
 MARKETPLACE,DEVTM_CDM_COL_DOMAINS,DATA_TYPE,VARCHAR2,106,0                                                                                                                          

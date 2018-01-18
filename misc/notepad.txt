@@ -200,4 +200,75 @@ UROWID	OID	0
 MARKETPLACE  EBA_DEMO_TREE_PROJ_FILES            UPDATED                                  TIMESTAMP(6) WITH LOCAL TIME ZONE            11
 MARKETPLACE  TOTAL_RECALL_MATRIX                 DATE_ADDED_TO_RECALL                     TIMESTAMP(6)
 
+-------------------------------------------
+def sub_dt(line_in, mapping):
+    #print("Search in line")
+
+    #res1 = " {} ({})".format(line_in[3],line_in[4])
+    res1 = " {} ({})".format(re.match('^\w+',line_in[3]).group(0),line_in[4])
+
+    for _i in range(len(mapping)):
+        #if mapping[_i][0] == line_in[3]:
+        if mapping[_i][0] == re.match('^\w+',line_in[3]).group(0):
+            res1 = " {}({})".format(mapping[_i][1],line_in[4])
+    return res1
+
+------------------------------------------------------
+--psql:/home/alexey/workspace/my_py/projects/ora2postgres/outbound/2018-01-10_194401_uscomdv1.out:119: ERROR:  syntax error at or near "DEFERRABLE"
+
+LINE 5: , DEFERRABLE  VARCHAR(14)
+          ^
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+psql:/home/alexey/workspace/my_py/projects/ora2postgres/outbound/2018-01-10_194401_uscomdv1.out:261: ERROR:  length for type varchar must be at least 1
+LINE 2: , FIX  VARCHAR(0)
+               ^
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+psql:/home/alexey/workspace/my_py/projects/ora2postgres/outbound/2018-01-10_194401_uscomdv1.out:324: ERROR:  syntax error at or near "DEFERRABLE"
+LINE 11: , DEFERRABLE  VARCHAR(14)
+           ^
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+psql:/home/alexey/workspace/my_py/projects/ora2postgres/outbound/2018-01-10_194401_uscomdv1.out:383: ERROR:  type "rowid" does not exist
+LINE 3: , BAD_ROWID  ROWID (10)
+                     ^
+CREATE TABLE
+
+
+---------------------------------------------------------------------
+-- DEFERRABLE issue
+
+alexey@alexey-ubuntu:~/workspace/my_py/projects/ora2postgres/inbound$ grep "DEFERRABLE" 2018-01-08_uscomdv1_tab_col_1.lst
+MARKETPLACE,CDM_REMOTE_TABLE_CONS_INFO_MV,DEFERRABLE,VARCHAR2,14,0
+MARKETPLACE,DEVTM_CONS_DIFF_PART,SUPERSET_DEFERRABLE,VARCHAR2,14,0
+MARKETPLACE,DEVTM_CONS_DIFF_PART,DEFERRABLE,VARCHAR2,14,0
+
+
+------------------------------------------------------------------------
+-- Oracle connection docs
+http://www.oracle.com/technetwork/database/database-technologies/scripting-languages/python/index.html#close
+http://www.oracle.com/technetwork/articles/dsl/python-091105.html
+
 

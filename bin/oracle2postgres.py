@@ -10,7 +10,8 @@ import pandas
 def param_load(sys_argv):
     print("Load parameters",sys_argv)
     if len(sys_argv) < 2:
-        return "../etc/ora2psql_dt.map"
+        dt_map = "../etc/ora2psql_dt.map"
+        return dt_map
     else:
         return sys.argv[0]
 

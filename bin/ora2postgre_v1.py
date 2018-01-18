@@ -33,13 +33,20 @@ def mapping_load(mapping_file):
 def sub_dt(line_in, mapping):
     #print("Search in line")
 
-    #res1 = " {} ({})".format(line_in[3],line_in[4])
     res1 = " {} ({})".format(re.match('^\w+',line_in[3]).group(0),line_in[4])
 
     for _i in range(len(mapping)):
-        #if mapping[_i][0] == line_in[3]:
+
         if mapping[_i][0] == re.match('^\w+',line_in[3]).group(0):
-            res1 = " {}({})".format(mapping[_i][1],line_in[4])
+
+            if int(mapping[_i][3]) == 1:
+
+                res1 = " {}({})".format(mapping[_i][1],line_in[4])
+
+            else:
+
+                res1 = " {}".format(mapping[_i][1])
+
     return res1
 
 
@@ -48,6 +55,7 @@ def write_output(ofile, oline):
     if not os.path.exists(ofile):
 
         with open(ofile,'wt') as _of:
+
             _of.write('-- begin file --\n')
             _of.write(oline)
 
@@ -87,13 +95,13 @@ def source_load(source_file,ora_dt_map):
 
                     table_name = _line[1]
 
-                    print('CREATE TABLE {}.{} ({} {}'.format(
+                    print('CREATE TABLE {}.{} ("{}" {}'.format(
                         _line[0],
                         _line[1],
                         _line[2],
                         sub_dt(_line, ora_dt_map))
                     )
-                    line_out = 'CREATE TABLE {}.{} ({} {} \n'.format(
+                    line_out = 'CREATE TABLE {}.{} ("{}" {} \n'.format(
                         _line[0],
                         _line[1],
                         _line[2],
@@ -102,8 +110,8 @@ def source_load(source_file,ora_dt_map):
                     write_output(output_file,line_out)
 
                 else:
-                    print(', {} {}'.format(_line[2], sub_dt(_line, ora_dt_map)))
-                    line_out = ', {} {} \n'.format(_line[2], sub_dt(_line, ora_dt_map))
+                    print(', "{}" {}'.format(_line[2], sub_dt(_line, ora_dt_map)))
+                    line_out = ', "{}" {} \n'.format(_line[2], sub_dt(_line, ora_dt_map))
                     write_output(output_file,line_out)
 
 
