@@ -1,0 +1,79 @@
+NL-08014: Failed to initialize Diagnosability framework, falling back to old network tracing/logging 
+ 
+ NL-08015: Client(OCI) side initialization of Diagnosability framework failed
+  ORA-48165: user missing read, write, or exec permission on specified ADR Base directory []
+User inputted base directory is invalid [48187] [C:\Oracle\product\11.2.0\client_1\log]
+
+
+
+***********************************************************************
+Fatal NI connect error 12170.
+
+  VERSION INFORMATION:
+	TNS for 64-bit Windows: Version 12.1.0.2.0 - Production
+	Windows NT TCP/IP NT Protocol Adapter for 64-bit Windows: Version 12.1.0.2.0 - Production
+  Time: 18-JAN-2018 13:11:48
+  Tracing not turned on.
+  Tns error struct:
+    ns main err code: 12535
+    TNS-12535: TNS:operation timed out
+    ns secondary err code: 12560
+    nt main err code: 505
+    TNS-00505: Operation timed out
+    nt secondary err code: 60
+    nt OS err code: 0
+  Client address: <unknown>
+NL-08014: Failed to initialize Diagnosability framework, falling back to old network tracing/logging 
+ 
+ NL-08015: Client(OCI) side initialization of Diagnosability framework failed
+  ORA-48165: user missing read, write, or exec permission on specified ADR Base directory []
+User inputted base directory is invalid [48187] [C:\Oracle\product\11.2.0\client_1\log]
+
+NL-08014: Failed to initialize Diagnosability framework, falling back to old network tracing/logging 
+ 
+ NL-08015: Client(OCI) side initialization of Diagnosability framework failed
+  ORA-48165: user missing read, write, or exec permission on specified ADR Base directory []
+User inputted base directory is invalid [48187] [C:\Oracle\product\11.2.0\client_1\log]
+
+NL-08014: Failed to initialize Diagnosability framework, falling back to old network tracing/logging 
+ 
+ NL-08015: Client(OCI) side initialization of Diagnosability framework failed
+  ORA-48165: user missing read, write, or exec permission on specified ADR Base directory []
+User inputted base directory is invalid [48187] [C:\Oracle\product\11.2.0\client_1\log]
+
+NL-08014: Failed to initialize Diagnosability framework, falling back to old network tracing/logging 
+ 
+ NL-08015: Client(OCI) side initialization of Diagnosability framework failed
+  ORA-48165: user missing read, write, or exec permission on specified ADR Base directory []
+User inputted base directory is invalid [48187] [C:\Oracle\product\11.2.0\client_1\log]
+
+NL-08014: Failed to initialize Diagnosability framework, falling back to old network tracing/logging 
+ 
+ NL-08015: Client(OCI) side initialization of Diagnosability framework failed
+  ORA-48165: user missing read, write, or exec permission on specified ADR Base directory []
+User inputted base directory is invalid [48187] [C:\Oracle\product\11.2.0\client_1\log]
+
+NL-08014: Failed to initialize Diagnosability framework, falling back to old network tracing/logging 
+ 
+ NL-08015: Client(OCI) side initialization of Diagnosability framework failed
+  ORA-48165: user missing read, write, or exec permission on specified ADR Base directory []
+User inputted base directory is invalid [48187] [C:\Oracle\product\11.2.0\client_1\log]
+
+NL-08014: Failed to initialize Diagnosability framework, falling back to old network tracing/logging 
+ 
+ NL-08015: Client(OCI) side initialization of Diagnosability framework failed
+  ORA-48165: user missing read, write, or exec permission on specified ADR Base directory []
+User inputted base directory is invalid [48187] [C:\Oracle\product\11.2.0\client_1\log]
+
+NL-08014: Failed to initialize Diagnosability framework, falling back to old network tracing/logging 
+ 
+ NL-08015: Client(OCI) side initialization of Diagnosability framework failed
+  ORA-48165: user missing read, write, or exec permission on specified ADR Base directory []
+User inputted base directory is invalid [48187] [C:\Oracle\product\11.2.0\client_1\log]
+
+NL-08014: Failed to initialize Diagnosability framework, falling back to old network tracing/logging 
+ 
+ NL-08015: Client(OCI) side initialization of Diagnosability framework failed
+  ORA-48165: user missing read, write, or exec permission on specified ADR Base directory []
+User inputted base directory is invalid [48187] [C:\Oracle\product\11.2.0\client_1\log]
+

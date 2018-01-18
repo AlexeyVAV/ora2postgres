@@ -272,3 +272,11 @@ http://www.oracle.com/technetwork/database/database-technologies/scripting-langu
 http://www.oracle.com/technetwork/articles/dsl/python-091105.html
 
 
+------------------------------------------------------------------------
+-- Postgres connection examples
+https://www.a2hosting.co.uk/kb/developer-corner/postgresql/connecting-to-postgresql-using-python
+
+>>> SQL = "INSERT INTO authors (name) VALUES (%s);" # Note: no quotes
+>>> data = ("O'Reilly", )
+>>> cur.execute(SQL, data) # Note: no % operator
+
