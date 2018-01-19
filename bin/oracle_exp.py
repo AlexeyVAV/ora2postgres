@@ -28,8 +28,8 @@ def pstg_conn():
 
 ############
 def main():
-    #ora_conn()
-    pstg_conn()
+    ora_conn()
+    #pstg_conn()
 
 #
 if __name__ == '__main__':
