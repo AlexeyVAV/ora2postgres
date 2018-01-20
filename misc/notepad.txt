@@ -281,4 +281,5 @@ https://www.a2hosting.co.uk/kb/developer-corner/postgresql/connecting-to-postgre
 >>> cur.execute(SQL, data) # Note: no % operator
 
 
-Hello Alex
+select column_name from dba_tab_cols where table_name='META_DICTIONARY' and owner='MARKETPLACE' and column_id is not null;
+select * from dba_tab_cols where table_name='META_DICTIONARY' and owner='MARKETPLACE';
