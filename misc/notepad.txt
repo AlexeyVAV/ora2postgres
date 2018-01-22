@@ -283,3 +283,38 @@ https://www.a2hosting.co.uk/kb/developer-corner/postgresql/connecting-to-postgre
 
 select column_name from dba_tab_cols where table_name='META_DICTIONARY' and owner='MARKETPLACE' and column_id is not null;
 select * from dba_tab_cols where table_name='META_DICTIONARY' and owner='MARKETPLACE';
+
+RosE#3358
+
+2018-01-22
+-- select * from MARKETPLACE.AGGREGATE_FUNCTION_MATRIX;
+select * from MARKETPLACE.AGGREGATE_MATRIX
+
+-----------------------------
+-- idea
+-- https://stackoverflow.com/questions/14904033/how-can-i-do-a-batch-insert-into-an-oracle-database-using-python
+--
+# build rows for each date and add to a list of rows we'll use to insert as a batch
+rows = []
+numberOfYears = endYear - startYear + 1
+for i in range(numberOfYears):
+    for j in range(12):
+        # make a date for the first day of the month
+        dateValue = datetime.date(startYear + i, j + 1, 1)
+        index = (i * 12) + j
+        row = (stationId, dateValue, temps[index], precips[index])
+        rows.append(row)
+
+# insert all of the rows as a batch and commit
+ip = '192.1.2.3'
+port = 1521
+SID = 'my_sid'
+dsn = cx_Oracle.makedsn(ip, port, SID)
+connection = cx_Oracle.connect('username', 'password', dsn)
+cursor = cx_Oracle.Cursor(connection)
+cursor.prepare('insert into ' + database_table_name + ' (id, record_date, temp, precip) values (:1, :2, :3, :4)')
+cursor.executemany(None, rows)
+connection.commit()
+cursor.close()
+connection.close()
+----------------------------
