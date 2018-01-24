@@ -28,7 +28,7 @@ def do_ora_query(conn): # main oracle loop through all schema tables
                     iowner = 'MARKETPLACE')
                     #,itable = 'META_DICTIONARY')
 
-    #ins_list = [] # list of inserts
+    #ins_list = [] # list of insertsá
     ins_dict = {}
     for tname in cursor:
         print("Table_name:", tname[0])

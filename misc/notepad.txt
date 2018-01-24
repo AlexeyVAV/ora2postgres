@@ -385,3 +385,10 @@ http://www.postgresqltutorial.com/postgresql-python/insert/
 -- product import from OpenERP to Postgres
     https://www.youtube.com/watch?v=tWFZWw3uY4k
     https://www.youtube.com/watch?v=goh6swXRYns
+--
+--ora2pg
+https://www.youtube.com/watch?v=w23DrHi0lD0
+http://www.1006.org/misc/201605-migrate-to-postgresql/part1.pdf
+https://ora2pg.darold.net/slides/ora2pg-best-practices.pdf
+http://ora2pg.darold.net/documentation.html
+https://github.com/darold/ora2pg/releases
