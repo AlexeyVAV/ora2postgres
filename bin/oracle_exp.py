@@ -10,22 +10,26 @@ def ora_conn(): # Oracle connection
     tend = time.time()
     print("connected in {} sec".format(tend-tstart))
 
-    for ins_sql in do_query_ora(ora_conn):
-        print(ins_sql)
+    return ora_conn
+    #for ins_sql in do_ora_query(ora_conn):
+    #    print(ins_sql)
+    #ora_conn.close()
 
+def ora_conn_close(ora_conn):
     ora_conn.close()
 
-def do_query_ora(conn): # mail oracle loop through all schema tables
+def do_ora_query(conn): # main oracle loop through all schema tables
     cursor = conn.cursor()
     cursor.execute("""SELECT table_name 
                         FROM dba_tables 
                         WHERE owner = :iowner
-                        and rownum < 3""",
+                        and rownum < 4""",
                         #and table_name = :itable""",
                     iowner = 'MARKETPLACE')
                     #,itable = 'META_DICTIONARY')
 
-    ins_list = [] # list of inserts
+    #ins_list = [] # list of inserts
+    ins_dict = {}
     for tname in cursor:
         print("Table_name:", tname[0])
         insert_statement = 'INSERT INTO {}.{} ('.format('MARKETPLACE',tname[0])
@@ -34,15 +38,18 @@ def do_query_ora(conn): # mail oracle loop through all schema tables
 
         for cols in tab_col(conn, tname[0]):
             insert_statement += str(cols) + ', '
-            values_str = values_str + ':{}, '.format(cnt)
-            cnt += cnt
+            #values_str = values_str + ':{}, '.format(cnt)
+            values_str = values_str + '%s, '.format(cnt)
+            cnt += 1
 
         #print('{}) VALUES({})'.format(insert_statement[:-2], values_str[:-2]))
-        insert_statement = '{}) VALUES({});'.format(insert_statement[:-2], values_str[:-2]) # building INSERT string
-        ins_list.append(insert_statement)
+        insert_statement = '{}) VALUES({})'.format(insert_statement[:-2], values_str[:-2]) # building INSERT string
+        ins_dict[tname[0]] = insert_statement
+        #ins_list.append(insert_statement)
 
     cursor.close()
-    return ins_list
+    #print(ins_dict)
+    return ins_dict
 
 def tab_col(iconn, itable): # scan table for columns name
     cur = iconn.cursor() # table columns cursor
@@ -53,7 +60,7 @@ def tab_col(iconn, itable): # scan table for columns name
                 i_owner = 'MARKETPLACE',
                 i_table=itable)
                 #i_table = 'META_DICTIONARY')
-    print("Columns for {}:".format(itable))
+    #print("Columns for {}:".format(itable))
     col_list = [] # list of columns
     for colname in cur:
         col_list.append(colname[0])
@@ -62,8 +69,16 @@ def tab_col(iconn, itable): # scan table for columns name
     cur.close()
     return col_list
 
+def ora_get_data(oraconn, itable):
+    cur = oraconn.cursor()
+    isql = "SELECT * FROM {}.{}".format('MARKETPLACE',itable)
+    cur.execute (isql)
+    data = list(cur)
+    cur.close()
+    return data
+
 ###### Postgres part
-def do_query_psg( conn ) :
+def do_pstg_query( conn ) :
     cur = conn.cursor()
 
     cur.execute( "SELECT * FROM vav_test" )
@@ -71,17 +86,57 @@ def do_query_psg( conn ) :
     for firstname, lastname in cur.fetchall() :
         print firstname, lastname
 
+    cur.close()
+
+
+def do_pstg_insert(pconn, iinsert, idata):
+    print("Insert records into Postgres")
+    ins_cur = pconn.cursor()
+    #ins_cur.execute("prepare ora_ins as"
+    #                "SELECT * FROM $1")
+    #ins_cur.executemany(sql)
+    #sql = ""
+    ins_cur.executemany(iinsert, [idata])
+    #for firstname, lastname in ins_cur.fetchall() :
+    #    print firstname, lastname
+    ins_cur.commit()
+    ins_cur.close()
+
 def pstg_conn():
     print('Postgres connection')
-    myConnection = psycopg2.connect("host='us-ham-svb-2051' port='5459' user='alexeyv' password='iamgroot' dbname='uscomdv1'")
+    tstart = time.time()
+    pstg_connection = psycopg2.connect("host='us-ham-svb-2051' port='5459' user='alexeyv' password='iamgroot' dbname='uscomdv1'")
+    tend = time.time()
+    print("connected in {} sec".format(tend - tstart))
     # port = 5459
-    do_query_psg( myConnection )
-    myConnection.close()
+    #do_pstg_query( pstg_connection )
+    #do_pstg_insert(pstg_connection, 'vav_test')
+    #pstg_connection.close()
+    return pstg_connection
+
+def pstg_conn_close(ptgconn):
+    ptgconn.close()
 
 ###### MAIN part ######
 def main():
-    ora_conn()
-    #pstg_conn()
+    ioraconn = ora_conn()
+    ipstgconn = pstg_conn()
+
+    for ins_table, ins_sql in do_ora_query(ioraconn).iteritems():
+        print("table to insert: {}  Insert Statement: {}".format(ins_table, ins_sql))
+
+        for idata in ora_get_data(ioraconn, ins_table):
+            print(idata)
+
+
+
+
+    #do_pstg_query(ipstgconn)
+    #do_pstg_insert(ipstgconn,1)
+
+    #pstg_conn_close(ipstgconn)
+    ora_conn_close(ioraconn)
+
 
 #
 if __name__ == '__main__':
