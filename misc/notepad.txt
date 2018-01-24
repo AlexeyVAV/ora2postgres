@@ -380,3 +380,8 @@ def insert_vendor_list(vendor_list):
         if conn is not None:
             conn.close()
 ------------------------------------------------------
+http://www.postgresqltutorial.com/postgresql-python/insert/
+
+-- product import from OpenERP to Postgres
+    https://www.youtube.com/watch?v=tWFZWw3uY4k
+    https://www.youtube.com/watch?v=goh6swXRYns

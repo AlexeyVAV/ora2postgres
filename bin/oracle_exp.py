@@ -23,7 +23,7 @@ def do_ora_query(conn): # main oracle loop through all schema tables
     cursor.execute("""SELECT table_name 
                         FROM dba_tables 
                         WHERE owner = :iowner
-                        and rownum < 4""",
+                        and rownum < 2""",
                         #and table_name = :itable""",
                     iowner = 'MARKETPLACE')
                     #,itable = 'META_DICTIONARY')
@@ -53,13 +53,14 @@ def do_ora_query(conn): # main oracle loop through all schema tables
 
 def tab_col(iconn, itable): # scan table for columns name
     cur = iconn.cursor() # table columns cursor
+
     cur.execute("""SELECT column_name 
                         FROM dba_tab_cols 
                         WHERE table_name = :i_table
-                        and owner = :i_owner and column_id is not null""",
+                        and owner = :i_owner and column_id is not null order by column_id""",
                 i_owner = 'MARKETPLACE',
                 i_table=itable)
-                #i_table = 'META_DICTIONARY')
+
     #print("Columns for {}:".format(itable))
     col_list = [] # list of columns
     for colname in cur:
@@ -80,26 +81,27 @@ def ora_get_data(oraconn, itable):
 ###### Postgres part
 def do_pstg_query( conn ) :
     cur = conn.cursor()
-
     cur.execute( "SELECT * FROM vav_test" )
-
     for firstname, lastname in cur.fetchall() :
         print firstname, lastname
-
     cur.close()
 
 
 def do_pstg_insert(pconn, iinsert, idata):
     print("Insert records into Postgres")
-    ins_cur = pconn.cursor()
-    #ins_cur.execute("prepare ora_ins as"
-    #                "SELECT * FROM $1")
-    #ins_cur.executemany(sql)
-    #sql = ""
-    ins_cur.executemany(iinsert, [idata])
-    #for firstname, lastname in ins_cur.fetchall() :
-    #    print firstname, lastname
-    ins_cur.commit()
+    try:
+        ins_cur = pconn.cursor()
+        #ins_cur.execute("prepare ora_ins as"
+        #                "SELECT * FROM $1")
+        #ins_cur.executemany(sql)
+        #sql = ""
+        ins_cur.executemany(iinsert, idata)
+        #for firstname, lastname in ins_cur.fetchall() :
+        #    print firstname, lastname
+        ins_cur.commit()
+    except (Exception, pconn.DatabaseError) as error:
+        print(error)
+
     ins_cur.close()
 
 def pstg_conn():
@@ -124,11 +126,23 @@ def main():
 
     for ins_table, ins_sql in do_ora_query(ioraconn).iteritems():
         print("table to insert: {}  Insert Statement: {}".format(ins_table, ins_sql))
+        print("Insert records into Postgres")
+        ora_data = ora_get_data(ioraconn, ins_table)
 
+        print(ora_data)
         for idata in ora_get_data(ioraconn, ins_table):
-            print(idata)
+            try:
+                ins_cur = ipstgconn.cursor()
+                print([idata])
+                ins_cur.execute(ins_sql, [idata])
+                ins_cur.commit()
+            except (Exception, ipstgconn.DatabaseError) as error:
+                print(error)
+            ins_cur.close()
 
-
+        #for idata in ora_get_data(ioraconn, ins_table):
+        #    do_pstg_insert(ipstgconn, ins_sql, idata)
+        #    print(idata)
 
 
     #do_pstg_query(ipstgconn)
